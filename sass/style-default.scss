@@ -1,0 +1,196 @@
+@font-face {
+    font-family: "JetBrainsMono";
+    src: url(../assets/fonts/JetBrainsMono-VariableFont_wght.ttf);
+    font-weight: bold;
+}
+
+$white: #FFFFFF;
+$black: #000000;
+$grey-200: #E6E5EA;
+$grey-600: #817D92;
+$grey-700: #54535B;
+$grey-800: #24232C;
+$grey-850: #18171F;
+$grey-900: #14131B;
+$grey-950: #08070B;
+$green: #A4FFAF;
+$yellow: #F8CD65;
+$orange: #FB7C58;
+$red: #F64A4A;
+$gradient: linear-gradient(#14131B, #08070B);
+
+@mixin text-preset-1{
+    font-family:    "JetBrainsMono";
+    font-size:      3.2rem;
+    line-height:    4.2rem;
+    letter-spacing: 0;
+}
+@mixin text-preset-2{
+    font-family:    "JetBrainsMono";
+    font-size:      2.4rem;
+    line-height:    3.2rem;
+    letter-spacing: 0;
+}
+@mixin text-preset-3{
+    font-family:    "JetBrainsMono";
+    font-size:      1.8rem;
+    line-height:    2.4rem;
+    letter-spacing: 0;
+}
+@mixin text-preset-4{
+    font-family:    "JetBrainsMono";
+    font-size:      1.6rem;
+    line-height:    2rem;
+    letter-spacing: 0;
+}
+@mixin flex($direction, $main-axis, $cross-axis){
+    display:         flex;
+    flex-direction:  $direction;
+    justify-content: $main-axis;
+    align-items:     $cross-axis;
+}
+
+.app-name{
+    @include text-preset-4;
+    color: $grey-600;
+}
+.result-password{
+    background-color: $grey-800;
+    border: none;
+    @include text-preset-2;
+    &::placeholder{
+        color: $grey-700;
+    }
+}
+.copy-btn{
+    & svg{
+        fill: $green;
+    }
+    &:hover svg{
+        fill: $white;
+    }
+}
+.len-label{
+    @include text-preset-4;
+    color: $grey-200;
+}
+.len-value{
+    @include text-preset-2;
+    color: $green;
+}
+.len-range{
+    appearance: none;
+    accent-color: $green;
+    &::-webkit-slider-runnable-track {
+        box-sizing: border-box;
+        height: 8px;
+        background-color: $grey-850;
+    }
+    &::-moz-range-track 
+    {
+        box-sizing: border-box;
+        background-color: $grey-850;
+    }
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 28px;
+        height: 28px;
+        margin-top: -10px;
+        border: none;
+        border-radius: 50%;
+        background: $grey-200;
+        transition: 450ms;
+    }
+    &::-webkit-slider-thumb {
+        border-image:
+            linear-gradient(90deg, $green 50%, $grey-850 0)
+            0 1 /
+            calc(50% - 4px)
+            100vw/0 100vw;
+    }
+    &::-moz-range-thumb {
+        width: 28px;
+        height: 28px;
+        margin-top: 0;
+        border: none;
+        border-radius: 50%;
+        background: $grey-200;
+        transition: 450ms;
+    }
+    &:hover::-webkit-slider-thumb,
+    &:active::-webkit-slider-thumb{
+        background: $grey-850;
+        box-shadow: 0 0 0 2px inset $green;
+    }
+    &:hover::-moz-range-thumb,
+    &:active::-moz-range-thumb{
+        background: $grey-850;
+        box-shadow: 0 0 0 2px inset $green;
+    }
+}
+.list-container{ 
+    & input[type="checkbox"]{
+        width:  2rem;
+        height: 2rem;
+        appearance: none;
+        border: .2rem solid $grey-200;
+        background-color: $grey-800;
+        transition: background-color 300ms;
+    }
+    & input[type="checkbox"]:hover{
+        border: .2rem solid $green;
+    }
+    & input[type="checkbox"]:checked{
+        background-color: $green;
+        border: none;
+        background-image: url(../assets/images/icon-check.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    & label{
+        @include text-preset-4;
+        color: $grey-200;
+    }
+}
+.strength-text{
+    @include text-preset-3;
+    color: $grey-600;
+    text-transform: uppercase;
+    @media screen and (max-width: 450px) {
+        @include text-preset-4;
+    }
+}
+.strength-result-text{
+    @include text-preset-2;
+    color: $grey-200;
+    text-transform: uppercase;
+    @media screen and (max-width: 450px) {
+        @include text-preset-3;
+    }
+}
+.hidden{
+    display: none;
+}
+.submit-btn{
+    width: 100%;
+    min-height: 5.6rem;
+    padding: 1.6rem 0;
+    @include text-preset-4;
+    color: $grey-800;
+    background-color: $green;
+    border: none;
+    & img{
+        margin-left: .9rem;
+    }
+
+    &:hover{
+        background-color: $grey-800;
+        color: $green;
+        border: .2rem solid $green;
+        & svg{
+            fill: $green;
+        }
+    }
+
+}
