@@ -51,15 +51,22 @@ $gradient: linear-gradient(#14131B, #08070B);
 }
 
 .app-name{
-    @include text-preset-4;
+    @include text-preset-2;
     color: $grey-600;
+    @media screen and (max-width: 450px) {
+        @include text-preset-4;
+    }
 }
 .result-password{
     background-color: $grey-800;
     border: none;
-    @include text-preset-2;
+    @include text-preset-1;
+    color: $grey-200;
     &::placeholder{
         color: $grey-700;
+    }
+    @media screen and (max-width: 450px) {
+        @include text-preset-2;
     }
 }
 .copy-btn{
@@ -69,14 +76,28 @@ $gradient: linear-gradient(#14131B, #08070B);
     &:hover svg{
         fill: $white;
     }
+    & p{
+        color: $green;
+        text-transform: uppercase;
+        @include text-preset-3;
+        @media screen and (max-width: 450px) {
+            @include text-preset-4;
+        }
+    }
 }
 .len-label{
-    @include text-preset-4;
+    @include text-preset-3;
     color: $grey-200;
+    @media screen and (max-width: 450px) {
+        @include text-preset-4;
+    }
 }
 .len-value{
-    @include text-preset-2;
+    @include text-preset-1;
     color: $green;
+    @media screen and (max-width: 450px) {
+        @include text-preset-2;
+    }
 }
 .len-range{
     appearance: none;
@@ -100,6 +121,9 @@ $gradient: linear-gradient(#14131B, #08070B);
         border-radius: 50%;
         background: $grey-200;
         transition: 450ms;
+    }
+    &.error::-webkit-slider-thumb{
+        background: $red;
     }
     &::-webkit-slider-thumb {
         border-image:
@@ -137,6 +161,9 @@ $gradient: linear-gradient(#14131B, #08070B);
         background-color: $grey-800;
         transition: background-color 300ms;
     }
+    &.error input[type="checkbox"]{
+        border: .2rem solid $red;
+    }
     & input[type="checkbox"]:hover{
         border: .2rem solid $green;
     }
@@ -147,10 +174,12 @@ $gradient: linear-gradient(#14131B, #08070B);
         background-repeat: no-repeat;
         background-position: center;
     }
-
     & label{
-        @include text-preset-4;
+        @include text-preset-3;
         color: $grey-200;
+        @media screen and (max-width: 450px) {
+            @include text-preset-4;
+        }
     }
 }
 .strength-text{
@@ -176,10 +205,13 @@ $gradient: linear-gradient(#14131B, #08070B);
     width: 100%;
     min-height: 5.6rem;
     padding: 1.6rem 0;
-    @include text-preset-4;
     color: $grey-800;
     background-color: $green;
     border: none;
+    @include text-preset-3;
+    @media screen and (max-width: 450px) {
+        @include text-preset-4;
+    }   
     & img{
         margin-left: .9rem;
     }
@@ -188,8 +220,10 @@ $gradient: linear-gradient(#14131B, #08070B);
         background-color: $grey-800;
         color: $green;
         border: .2rem solid $green;
+        transition: 300ms;
         & svg{
             fill: $green;
+            transition: 300ms;
         }
     }
 
